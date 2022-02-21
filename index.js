@@ -7,7 +7,7 @@ require("dotenv").config();
 var tado = new Tado();
 
 cron.schedule("*/20 * * * *", function () {
-  console.log("running a task every twenty minutes");
+  console.log("updating brewfather every twenty minutes");
   let temperature = undefined;
 
   tado.login(process.env.TADO_USERNAME, process.env.TADO_PASSWORD).then(() => {
@@ -19,7 +19,7 @@ cron.schedule("*/20 * * * *", function () {
         if (typeof temperature == "number") {
           axios
             .post(process.env.BREWFATHER_WEBHOOK, {
-              name: "Bedroom thermostat",
+              name: process.env.BREWFATHER_DEVICE_NAME,
               ext_temp: temperature,
               temp_unit: "C",
             })
