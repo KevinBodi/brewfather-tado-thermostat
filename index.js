@@ -15,7 +15,10 @@ cron.schedule("*/20 * * * *", function () {
       .getZoneState(process.env.TADO_HOME_ID, process.env.TADO_ZONE_ID)
       .then((resp) => {
         temperature =
-          resp?.sensorDataPoints?.insideTemperature?.celsius ?? undefined;
+          (resp.sensorDataPoints &&
+            resp.sensorDataPoints.insideTemperature &&
+            resp.sensorDataPoints.insideTemperature.celsius) ||
+          undefined;
         if (typeof temperature == "number") {
           axios
             .post(process.env.BREWFATHER_WEBHOOK, {
