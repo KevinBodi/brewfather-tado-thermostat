@@ -1,0 +1,25 @@
+{
+  "name": "thermostattobrewfather",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinBodi/thermostatToBrewfather.git"
+  },
+  "author": "Kevin Bodi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KevinBodi/thermostatToBrewfather/issues"
+  },
+  "homepage": "https://github.com/KevinBodi/thermostatToBrewfather#readme",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "dotenv": "^16.0.0",
+    "node-cron": "^3.0.0",
+    "node-tado-client": "^0.9.5"
+  }
+}
